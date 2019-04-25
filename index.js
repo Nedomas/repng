@@ -97,7 +97,9 @@ module.exports = async (Component, opts = {}) => {
   // todo:
   // - scale
   // - delay
-  const browser = await puppeteer.launch()
+  const browser = await puppeteer.launch({
+    args: ['--disable-web-security', '--no-sandbox'],
+  })
   const page = await browser.newPage()
   await page.goto(data)
   const result = await page.screenshot({
