@@ -101,7 +101,7 @@ module.exports = async (Component, opts = {}) => {
     args: ['--disable-web-security', '--no-sandbox'],
   })
   const page = await browser.newPage()
-  await page.goto(data)
+  await page.goto(data, { waitUntil: 'networkidle0' })
   const result = await page.screenshot({
     type: 'png',
     clip: {
