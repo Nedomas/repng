@@ -102,6 +102,7 @@ module.exports = async (Component, opts = {}) => {
   })
   const page = await browser.newPage()
   await page.goto(data, { waitUntil: 'networkidle0' })
+  await page.waitFor(3000)
   const result = await page.screenshot({
     type: 'png',
     clip: {
